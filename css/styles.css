@@ -1,3 +1,19 @@
+
+:root{
+  --negro: #111111;
+  --blanco: #FEFEFE;
+  --grisOscuro: #222222;
+  --grisClaro: #C8C8C8;
+  --grisClaroHover: #ACABAB;
+  --azul: #3E60E9;
+  --azulHover: #254BE6;
+  --bodyBG: #F1F1F1;
+
+  --sombraDark: 10px 10px 20px rgba(170,170,170,.16);
+  --sombraLight: 10px 10px 20px rgba(0,0,0,.16);
+}
+
+
 * {
   padding: 0;
   margin: 0;
@@ -6,14 +22,18 @@
 }
 
 body {
-  background: #F1F1F1;
+  background: var(--bodyBG);
   font-family: 'Roboto', sans-serif;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
+
+  &.dark{
+    background: var(--negro);
+  }
 }
 
 a {
-  color: #222222;
+  color: var(--grisOscuro);
   text-decoration: none;
   font-weight: 500;
 }
@@ -44,6 +64,19 @@ nav {
   box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
 }
 
+body.dark nav{
+  background: var(--grisOscuro);
+  box-shadow: var(--sombraLight);
+
+  & a{
+    color: var(--grisClaro);
+
+    &:hover{
+      color: var(--blanco);
+    }
+  }
+}
+
 nav .logotipo {
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
@@ -65,6 +98,59 @@ nav .enlaces a {
 nav .enlaces a:hover {
   color: #707070;
 }
+
+/* ----- ----- ----- ----- ----- Switch ----- ----- ----- ----- -----  */
+
+.switch{
+  background: #343D5B;
+	border-radius: 1000px;
+	border: none;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	outline: none;
+
+  &::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+
+  }
+
+  &.active{
+    background: orange;
+    color: #000;
+
+    &::after{
+      right: 0;
+      left: unset;
+    }
+  }
+
+  & span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+  }
+
+}
+
+
+/* ----- ----- ----- ----- ----- Switch ----- ----- ----- ----- -----  */
+
+/* ----CARD---- */
 
 .grid {
   display: -ms-grid;
@@ -92,6 +178,46 @@ nav .enlaces a:hover {
   margin-top: 50px;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
+}
+
+body.dark .grid .card{
+  background: var(--grisOscuro);
+  box-shadow: var(--sombraLight);
+}
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background-color: #2f23d0d4;
+
+  display: grid;
+  grid-template-columns: 90%;
+  grid-template-rows: 50%;
+  place-content: center;
+
+  transform: translate(-100%);
+  transition: .3s trasform;
+}
+
+.show{
+  transform: translate(0);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.btn{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .grid .card img {
