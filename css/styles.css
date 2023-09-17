@@ -5,12 +5,21 @@
   --grisOscuro: #222222;
   --grisClaro: #C8C8C8;
   --grisClaroHover: #ACABAB;
+  --grisHover: #707070;
   --azul: #3E60E9;
   --azulHover: #254BE6;
   --bodyBG: #F1F1F1;
+  --switchDark: #343D5B;
+  --switchLight: orange;
+  --switchColorL: #000;
+  --switchColorD: #fff;
+  --lightBoxBg: #2f23d0d4;
+  --lightBoxClose: red;
+
 
   --sombraDark: 10px 10px 20px rgba(170,170,170,.16);
   --sombraLight: 10px 10px 20px rgba(0,0,0,.16);
+  --sombraSwitch: 0px 0px 2px 2px rgba(0, 0, 0, .2);
 }
 
 
@@ -46,7 +55,7 @@ a {
 }
 
 nav {
-  background: #FEFEFE;
+  background: var(--blanco);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,8 +69,8 @@ nav {
   border-radius: 5px;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
-  -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
-  box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  -webkit-box-shadow: var(--sombraDark);
+  box-shadow: var(--sombraDark);
 }
 
 body.dark nav{
@@ -96,13 +105,13 @@ nav .enlaces a {
 }
 
 nav .enlaces a:hover {
-  color: #707070;
+  color: var(--grisHover);
 }
 
 /* ----- ----- ----- ----- ----- Switch ----- ----- ----- ----- -----  */
 
 .switch{
-  background: #343D5B;
+  background: var(--switchDark);
 	border-radius: 1000px;
 	border: none;
 	position: relative;
@@ -116,19 +125,19 @@ nav .enlaces a:hover {
     width: 30px;
     height: 30px;
     position: absolute;
-    background: #F1F1F1;
+    background: var(--bodyBG);
     top: 0;
     left: 0;
     right: unset;
     border-radius: 100px;
     transition: .3s ease all;
-    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
+    box-shadow:var(--sombraSwitch);
 
   }
 
   &.active{
-    background: orange;
-    color: #000;
+    background: var(--switchLight);
+    color: var(--switchColorL);
 
     &::after{
       right: 0;
@@ -142,7 +151,7 @@ nav .enlaces a:hover {
     line-height: 30px;
     display: block;
     background: none;
-    color: #fff;
+    color: var(--switchColorD);
   }
 
 }
@@ -162,11 +171,11 @@ nav .enlaces a:hover {
 }
 
 .grid .card {
-  background: #FEFEFE;
+  background: var(--blanco);
   padding: 20px;
   border-radius: 5px;
-  -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
-  box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  -webkit-box-shadow: var(--sombraDark);
+  box-shadow: var(--sombraDark);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,7 +197,7 @@ body.dark .grid .card{
 .lightbox{
   position: fixed;
   inset: 0;
-  background-color: #2f23d0d4;
+  background-color: var(--lightBoxBg);
 
   display: grid;
   grid-template-columns: 90%;
@@ -212,12 +221,14 @@ body.dark .grid .card{
   right: 20px;
   width: 40px;
   height: 40px;
-  background-color: red;
-  color: white;
+  background-color: var(--lightBoxClose);
+  color: var(--switchColorD);
   border: none;
   border-radius: 50%;
   font-weight: bold;
   cursor: pointer;
+
+  
 }
 
 .grid .card img {
@@ -243,10 +254,10 @@ body.dark .grid .card{
 
 .grid .card .botones .boton {
   padding: 10px;
-  color: #fff;
+  color: var(--switchColorD);
   width: 100%;
   display: block;
-  background: #111111;
+  background: var(--negro);
   text-align: center;
   border-radius: 5px;
   -webkit-transition: .3s ease all;
@@ -254,18 +265,18 @@ body.dark .grid .card{
 }
 
 .grid .card .botones .boton.primario {
-  background: #3E60E9;
+  background: var(--azul);
 }
 
 .grid .card .botones .boton.primario:hover {
-  background: #254BE6;
+  background: var(--azulHover);
 }
 
 .grid .card .botones .boton.secundario {
-  background: #C8C8C8;
+  background: var(--grisClaro);
 }
 
 .grid .card .botones .boton.secundario:hover {
-  background: #ACABAB;
+  background: var(--grisClaroHover);
 }
 /*# sourceMappingURL=estilos.css.map */
